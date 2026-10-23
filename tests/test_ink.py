@@ -39,5 +39,12 @@ class Calibration(unittest.TestCase):
         self.assertIn("qu'en pensez-vous", r["slop_terms"])
 
 
+class ProfileCliches(unittest.TestCase):
+    def test_about_cliche_flagged(self):
+        r = ink.run("Product Manager with a proven track record of success in the tech industry. I have a deep understanding of agile.", "en")
+        self.assertIn("proven track record", r["slop_terms"])
+        self.assertNotEqual(r["verdict"], "PASS")
+
+
 if __name__ == "__main__":
     unittest.main()

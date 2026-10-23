@@ -24,10 +24,10 @@ jobs:
     skills: [ink-post, ink-human]
     prompt: "For tomorrow's slot: write the draft from its idea card, pass the human gate, send it for approval (OK / Modifier / Reporter)."
 
-  - name: inkedin-publish
-    schedule: "15 8 * * 2,4"     # aligné sur cadence.slots ; mettre un job par créneau
-    skills: []
-    prompt: "If today's post is `approved`: mode copy -> send the final block; mode api -> run tools/publish.py. Never publish anything that isn't approved."
+  - name: inkedin-publish-due
+    schedule: "*/15 7-21 * * *"
+    no_agent: true                 # script pur, aucun LLM : publie les posts `approved` dont le `slot` est passé
+    script: scripts/publish_due.py
 
   - name: inkedin-daily-comments
     schedule: "30 18 * * *"

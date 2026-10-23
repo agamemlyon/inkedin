@@ -1,91 +1,381 @@
 {
-  "version": "1.0",
-  "lang": "en",
-  "note": "English slop lexicon. `replace` is applied by `ink clean`; entries with replace=null are flagged only. Edit freely: if a word is genuinely yours, delete it here or add it to `allow` in your voice.md.",
-  "words": [
-    {"find": "delve into", "replace": "look at"},
-    {"find": "delve", "replace": "dig"},
-    {"find": "leverage", "replace": "use"},
-    {"find": "leveraging", "replace": "using"},
-    {"find": "utilize", "replace": "use"},
-    {"find": "robust", "replace": "solid"},
-    {"find": "seamless", "replace": "smooth"},
-    {"find": "seamlessly", "replace": "smoothly"},
-    {"find": "crucial", "replace": "important"},
-    {"find": "pivotal", "replace": "important"},
-    {"find": "paramount", "replace": "important"},
-    {"find": "tapestry", "replace": null},
-    {"find": "testament to", "replace": "proof of"},
-    {"find": "landscape", "replace": null},
-    {"find": "realm", "replace": "field"},
-    {"find": "vibrant", "replace": null},
-    {"find": "showcase", "replace": "show"},
-    {"find": "showcasing", "replace": "showing"},
-    {"find": "underscore", "replace": "show"},
-    {"find": "underscores", "replace": "shows"},
-    {"find": "foster", "replace": "build"},
-    {"find": "fostering", "replace": "building"},
-    {"find": "empower", "replace": "help"},
-    {"find": "empowering", "replace": "helping"},
-    {"find": "unlock", "replace": "open"},
-    {"find": "unleash", "replace": "use"},
-    {"find": "harness", "replace": "use"},
-    {"find": "elevate", "replace": "improve"},
-    {"find": "game-changer", "replace": null},
-    {"find": "game-changing", "replace": null},
-    {"find": "cutting-edge", "replace": "new"},
-    {"find": "groundbreaking", "replace": "new"},
-    {"find": "transformative", "replace": null},
-    {"find": "revolutionize", "replace": "change"},
-    {"find": "moreover", "replace": "also"},
-    {"find": "furthermore", "replace": "also"},
-    {"find": "additionally", "replace": "also"},
-    {"find": "navigate", "replace": "handle"},
-    {"find": "navigating", "replace": "handling"},
-    {"find": "embark", "replace": "start"},
-    {"find": "journey", "replace": null},
-    {"find": "synergy", "replace": null},
-    {"find": "holistic", "replace": null},
-    {"find": "intricate", "replace": "complex"},
-    {"find": "meticulous", "replace": "careful"},
-    {"find": "invaluable", "replace": "useful"},
-    {"find": "thrilled", "replace": "happy"},
-    {"find": "excited to announce", "replace": null},
-    {"find": "humbled", "replace": null}
-  ],
-  "phrases": [
-    {"find": "in today's fast-paced world", "replace": null},
-    {"find": "in today's digital age", "replace": null},
-    {"find": "in the ever-evolving", "replace": null},
-    {"find": "it's important to note", "replace": null},
-    {"find": "let's dive in", "replace": null},
-    {"find": "let's explore", "replace": null},
-    {"find": "here's the thing", "replace": null},
-    {"find": "here's what you need to know", "replace": null},
-    {"find": "let that sink in", "replace": null},
-    {"find": "read that again", "replace": null},
-    {"find": "at the end of the day", "replace": null},
-    {"find": "the real question is", "replace": null},
-    {"find": "plays a crucial role", "replace": null},
-    {"find": "a new chapter", "replace": null},
-    {"find": "stay tuned", "replace": null},
-    {"find": "join the conversation", "replace": null},
-    {"find": "share your thoughts", "replace": null},
-    {"find": "what are your thoughts", "replace": null},
-    {"find": "agree?", "replace": null},
-    {"find": "thoughts?", "replace": null},
-    {"find": "who else", "replace": null},
-    {"find": "i hope this helps", "replace": null},
-    {"find": "shape the future", "replace": null},
-    {"find": "rise to the occasion", "replace": null}
-  ],
-  "structures": [
-    {"id": "not-just", "regex": "(?i)\\bit'?s not (?:just|only|merely) [^.!?\\n]{2,60}[,.;] ?it'?s\\b", "name": "\"It's not just X, it's Y\"", "fix": "Say Y. Delete the setup."},
-    {"id": "not-only", "regex": "(?i)\\bnot only\\b[^.!?\\n]{2,80}\\bbut (?:also)?\\b", "name": "\"Not only X but also Y\"", "fix": "Two sentences or drop the weaker half."},
-    {"id": "isnt-about", "regex": "(?i)\\b(?:this|it) (?:is|was)(?:n'?t| not) about [^.!?\\n]{2,60}[.!,;] ?it'?s about\\b", "name": "\"It isn't about X. It's about Y.\"", "fix": "Lead with Y."},
-    {"id": "one-word-q", "regex": "(?m)^\\s*(?:The (?:result|kicker|secret|truth|catch|lesson|twist)|Why|The answer|My take)\\s*\\?\\s*$", "name": "Staged reveal question line", "fix": "Merge the answer into the previous sentence."},
-    {"id": "heres-why", "regex": "(?im)^\\s*here'?s (?:why|how|what)\\b.*[:.]?\\s*$", "name": "\"Here's why:\" signpost", "fix": "Cut it. Start with the reason."},
-    {"id": "conclusion-label", "regex": "(?im)^\\s*(?:in conclusion|conclusion|key takeaways?|tl;dr)\\s*[:\\-]", "name": "Conclusion label", "fix": "End on the point itself."},
-    {"id": "bold-header-list", "regex": "(?m)^\\s*(?:[-*]|\\S{1,3})\\s*[^\\n:]{2,40}:\\s*\\n", "name": "Inline-header list item", "fix": "Write the item as a sentence."}
-  ]
+ "version": "1.0",
+ "lang": "en",
+ "note": "English slop lexicon. `replace` is applied by `ink clean`; entries with replace=null are flagged only. Edit freely: if a word is genuinely yours, delete it here or add it to `allow` in your voice.md.",
+ "words": [
+  {
+   "find": "delve into",
+   "replace": "look at"
+  },
+  {
+   "find": "delve",
+   "replace": "dig"
+  },
+  {
+   "find": "leverage",
+   "replace": "use"
+  },
+  {
+   "find": "leveraging",
+   "replace": "using"
+  },
+  {
+   "find": "utilize",
+   "replace": "use"
+  },
+  {
+   "find": "robust",
+   "replace": "solid"
+  },
+  {
+   "find": "seamless",
+   "replace": "smooth"
+  },
+  {
+   "find": "seamlessly",
+   "replace": "smoothly"
+  },
+  {
+   "find": "crucial",
+   "replace": "important"
+  },
+  {
+   "find": "pivotal",
+   "replace": "important"
+  },
+  {
+   "find": "paramount",
+   "replace": "important"
+  },
+  {
+   "find": "tapestry",
+   "replace": null
+  },
+  {
+   "find": "testament to",
+   "replace": "proof of"
+  },
+  {
+   "find": "landscape",
+   "replace": null
+  },
+  {
+   "find": "realm",
+   "replace": "field"
+  },
+  {
+   "find": "vibrant",
+   "replace": null
+  },
+  {
+   "find": "showcase",
+   "replace": "show"
+  },
+  {
+   "find": "showcasing",
+   "replace": "showing"
+  },
+  {
+   "find": "underscore",
+   "replace": "show"
+  },
+  {
+   "find": "underscores",
+   "replace": "shows"
+  },
+  {
+   "find": "foster",
+   "replace": "build"
+  },
+  {
+   "find": "fostering",
+   "replace": "building"
+  },
+  {
+   "find": "empower",
+   "replace": "help"
+  },
+  {
+   "find": "empowering",
+   "replace": "helping"
+  },
+  {
+   "find": "unlock",
+   "replace": "open"
+  },
+  {
+   "find": "unleash",
+   "replace": "use"
+  },
+  {
+   "find": "harness",
+   "replace": "use"
+  },
+  {
+   "find": "elevate",
+   "replace": "improve"
+  },
+  {
+   "find": "game-changer",
+   "replace": null
+  },
+  {
+   "find": "game-changing",
+   "replace": null
+  },
+  {
+   "find": "cutting-edge",
+   "replace": "new"
+  },
+  {
+   "find": "groundbreaking",
+   "replace": "new"
+  },
+  {
+   "find": "transformative",
+   "replace": null
+  },
+  {
+   "find": "revolutionize",
+   "replace": "change"
+  },
+  {
+   "find": "moreover",
+   "replace": "also"
+  },
+  {
+   "find": "furthermore",
+   "replace": "also"
+  },
+  {
+   "find": "additionally",
+   "replace": "also"
+  },
+  {
+   "find": "navigate",
+   "replace": "handle"
+  },
+  {
+   "find": "navigating",
+   "replace": "handling"
+  },
+  {
+   "find": "embark",
+   "replace": "start"
+  },
+  {
+   "find": "journey",
+   "replace": null
+  },
+  {
+   "find": "synergy",
+   "replace": null
+  },
+  {
+   "find": "holistic",
+   "replace": null
+  },
+  {
+   "find": "intricate",
+   "replace": "complex"
+  },
+  {
+   "find": "meticulous",
+   "replace": "careful"
+  },
+  {
+   "find": "invaluable",
+   "replace": "useful"
+  },
+  {
+   "find": "thrilled",
+   "replace": "happy"
+  },
+  {
+   "find": "excited to announce",
+   "replace": null
+  },
+  {
+   "find": "humbled",
+   "replace": null
+  }
+ ],
+ "phrases": [
+  {
+   "find": "in today's fast-paced world",
+   "replace": null
+  },
+  {
+   "find": "in today's digital age",
+   "replace": null
+  },
+  {
+   "find": "in the ever-evolving",
+   "replace": null
+  },
+  {
+   "find": "it's important to note",
+   "replace": null
+  },
+  {
+   "find": "let's dive in",
+   "replace": null
+  },
+  {
+   "find": "let's explore",
+   "replace": null
+  },
+  {
+   "find": "here's the thing",
+   "replace": null
+  },
+  {
+   "find": "here's what you need to know",
+   "replace": null
+  },
+  {
+   "find": "let that sink in",
+   "replace": null
+  },
+  {
+   "find": "read that again",
+   "replace": null
+  },
+  {
+   "find": "at the end of the day",
+   "replace": null
+  },
+  {
+   "find": "the real question is",
+   "replace": null
+  },
+  {
+   "find": "plays a crucial role",
+   "replace": null
+  },
+  {
+   "find": "a new chapter",
+   "replace": null
+  },
+  {
+   "find": "stay tuned",
+   "replace": null
+  },
+  {
+   "find": "join the conversation",
+   "replace": null
+  },
+  {
+   "find": "share your thoughts",
+   "replace": null
+  },
+  {
+   "find": "what are your thoughts",
+   "replace": null
+  },
+  {
+   "find": "agree?",
+   "replace": null
+  },
+  {
+   "find": "thoughts?",
+   "replace": null
+  },
+  {
+   "find": "who else",
+   "replace": null
+  },
+  {
+   "find": "i hope this helps",
+   "replace": null
+  },
+  {
+   "find": "shape the future",
+   "replace": null
+  },
+  {
+   "find": "rise to the occasion",
+   "replace": null
+  },
+  {
+   "find": "proven track record",
+   "replace": null
+  },
+  {
+   "find": "track record of success",
+   "replace": null
+  },
+  {
+   "find": "deep understanding",
+   "replace": null
+  },
+  {
+   "find": "passionate about",
+   "replace": null
+  },
+  {
+   "find": "results-driven",
+   "replace": null
+  },
+  {
+   "find": "detail-oriented",
+   "replace": null
+  },
+  {
+   "find": "dynamic professional",
+   "replace": null
+  },
+  {
+   "find": "seasoned professional",
+   "replace": null
+  },
+  {
+   "find": "wealth of experience",
+   "replace": null
+  }
+ ],
+ "structures": [
+  {
+   "id": "not-just",
+   "regex": "(?i)\\bit'?s not (?:just|only|merely) [^.!?\\n]{2,60}[,.;] ?it'?s\\b",
+   "name": "\"It's not just X, it's Y\"",
+   "fix": "Say Y. Delete the setup."
+  },
+  {
+   "id": "not-only",
+   "regex": "(?i)\\bnot only\\b[^.!?\\n]{2,80}\\bbut (?:also)?\\b",
+   "name": "\"Not only X but also Y\"",
+   "fix": "Two sentences or drop the weaker half."
+  },
+  {
+   "id": "isnt-about",
+   "regex": "(?i)\\b(?:this|it) (?:is|was)(?:n'?t| not) about [^.!?\\n]{2,60}[.!,;] ?it'?s about\\b",
+   "name": "\"It isn't about X. It's about Y.\"",
+   "fix": "Lead with Y."
+  },
+  {
+   "id": "one-word-q",
+   "regex": "(?m)^\\s*(?:The (?:result|kicker|secret|truth|catch|lesson|twist)|Why|The answer|My take)\\s*\\?\\s*$",
+   "name": "Staged reveal question line",
+   "fix": "Merge the answer into the previous sentence."
+  },
+  {
+   "id": "heres-why",
+   "regex": "(?im)^\\s*here'?s (?:why|how|what)\\b.*[:.]?\\s*$",
+   "name": "\"Here's why:\" signpost",
+   "fix": "Cut it. Start with the reason."
+  },
+  {
+   "id": "conclusion-label",
+   "regex": "(?im)^\\s*(?:in conclusion|conclusion|key takeaways?|tl;dr)\\s*[:\\-]",
+   "name": "Conclusion label",
+   "fix": "End on the point itself."
+  },
+  {
+   "id": "bold-header-list",
+   "regex": "(?m)^\\s*(?:[-*]|\\S{1,3})\\s*[^\\n:]{2,40}:\\s*\\n",
+   "name": "Inline-header list item",
+   "fix": "Write the item as a sentence."
+  }
+ ]
 }
