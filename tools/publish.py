@@ -6,6 +6,10 @@ publish.py - post an APPROVED InkedIn draft to your own LinkedIn profile via the
     publish.py post data/queue/2026-10-28_slug.md --dry-run  # show exactly what would be sent
     publish.py whoami                                         # check the LinkedIn connection
 
+Optional frontmatter: `image: file.gif|png|jpg` (relative to the draft) and `image_alt: ...`.
+The image is uploaded with LinkedIn's Images API (initializeUpload -> PUT to the signed URL -> wait AVAILABLE).
+If an image is declared and the upload fails, NOTHING is posted.
+
 Transport: Treg (`treg call linkedin rest/posts`). The OAuth token (scope w_member_social) lives in the
 Treg vault and is never read by this script or by the agent. Without Treg, set LINKEDIN_TOKEN and it calls
 api.linkedin.com directly.
@@ -104,6 +108,35 @@ def call(path, method="GET", body=None, extra_headers=()):
     return (0 if p.returncode == 0 else p.returncode), {}, (p.stdout + p.stderr).strip()
 
 
+def upload_image(path, owner, headers):
+    """Images API: initializeUpload via Treg/direct, PUT bytes to the signed uploadUrl, poll until AVAILABLE."""
+    import time
+    import urllib.parse
+    code, _, out = call("rest/images?action=initializeUpload", "POST",
+                        {"initializeUploadRequest": {"owner": owner}}, headers)
+    data = json.loads(out[out.find("{"):]) if "{" in out else {}
+    val = data.get("value") or {}
+    if "uploadUrl" not in val:
+        sys.exit(f"image initializeUpload failed: {out[:300]}")
+    req = urllib.request.Request(val["uploadUrl"], method="PUT", data=open(path, "rb").read())
+    req.add_header("Content-Type", "application/octet-stream")
+    if os.environ.get("LINKEDIN_TOKEN"):
+        req.add_header("Authorization", "Bearer " + os.environ["LINKEDIN_TOKEN"])
+    with urllib.request.urlopen(req, timeout=120) as r:
+        if r.status not in (200, 201):
+            sys.exit(f"image upload HTTP {r.status}")
+    urn = val["image"]
+    enc = urllib.parse.quote(urn, safe="")
+    for _ in range(20):
+        _, _, st = call(f"rest/images/{enc}", "GET", None, headers)
+        if '"AVAILABLE"' in st:
+            return urn
+        if '"PROCESSING_FAILED"' in st:
+            sys.exit("image processing failed on LinkedIn's side")
+        time.sleep(3)
+    sys.exit("image not AVAILABLE after 60 s, aborting (nothing posted)")
+
+
 def whoami():
     code, _, out = call("v2/userinfo")
     data = json.loads(out[out.find("{"):]) if "{" in out else {}
@@ -154,13 +187,29 @@ def cmd_post(a):
         "isReshareDisabledByAuthor": False,
     }
     headers = [f"LinkedIn-Version: {linkedin_version()}", "X-Restli-Protocol-Version: 2.0.0"]
+    img = fm.get("image")
+    img_path = None
+    if img:
+        img_path = img if os.path.isabs(img) else os.path.join(os.path.dirname(os.path.abspath(a.file)), img)
+        if not os.path.exists(img_path):
+            print(f"REFUSED: image not found: {img_path}")
+            sys.exit(2)
+        if os.path.getsize(img_path) > 8 * 1024 * 1024:
+            print("REFUSED: image > 8 MB")
+            sys.exit(2)
     print(f"author:  {me.get('name')} ({body['author']})")
+    if img_path:
+        print(f"image:   {img_path} ({os.path.getsize(img_path) // 1024} KB) alt: {fm.get('image_alt', '')[:60]}")
     print(f"version: {linkedin_version()}   ink: {r['overall']} {r['verdict']}   chars: {len(text)}")
     if a.dry_run or a.force_dry:
         print("\nDRY RUN, nothing sent. Body:\n" + json.dumps(body, ensure_ascii=False, indent=1))
         if problems:
             print("\nWould be REFUSED:\n - " + "\n - ".join(problems))
         return
+    if img_path:
+        urn_img = upload_image(img_path, body["author"], headers)
+        body["content"] = {"media": {"id": urn_img, "altText": fm.get("image_alt", "")[:300]}}
+        print(f"image uploaded: {urn_img}")
     code, hdrs, out = call("rest/posts", "POST", body, headers)
     if code not in (0, 201):
         sys.exit(f"LinkedIn error {code}: {out[:500]}")

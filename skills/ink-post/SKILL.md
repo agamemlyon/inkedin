@@ -70,6 +70,10 @@ slot:      <from plan>
 ```
 Save to `data/queue/YYYY-MM-DD_<slug>.md` with frontmatter `status: review`.
 
+## Visuals
+- Optional `image:` + `image_alt:` in the draft frontmatter; `publish.py` uploads it (PNG/JPG/GIF ≤ 8 MB) and refuses to post if the upload fails.
+- Original visuals only: no film or anime clips/stills (copyright). Render a homage instead (e.g. PIL-generated GIF), and always write alt text.
+
 ## Never
 - Name or target a real person (influencer, colleague, client, competitor) unless guardrails.md allows it. Inspiration accounts never appear in posts.
 - Exceed the DNA's cap on posts about the author's current job.
