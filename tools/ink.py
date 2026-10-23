@@ -181,8 +181,9 @@ def check_voice(text, lex, lang):
             tells.append((s["name"], n, s["fix"]))
     n_tells = sum(t[1] for t in tells)
     spoken_target = 2.0 if lang == "en" else 0.8
-    score = scale(person, human=4.0, machine=0.3) * 0.55 + scale(spoken, human=spoken_target, machine=0.0) * 0.45
-    score -= n_tells * 12
+    # Analytical third-person writing is still human: markers lift the score, absence doesn't sink it.
+    base = scale(person, human=4.0, machine=0.3) * 0.55 + scale(spoken, human=spoken_target, machine=0.0) * 0.45
+    score = 45 + base * 0.55 - n_tells * 15
     detail = f"{person:.1f} first-person/100w, {spoken:.1f} spoken markers/100w, {n_tells} structural tells"
     return clamp(score), detail, tells
 

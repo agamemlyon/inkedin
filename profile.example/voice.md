@@ -51,7 +51,11 @@ Trois à cinq textes qui sonnent 100 % comme moi : posts, messages, mails, trans
 - `corpus/golden/01.txt`
 -
 
-## 8. Journal des corrections
+## 8. Influences
+Techniques empruntées à 3-10 comptes modèles (voir `ink-voice` › Inspiration accounts). Ce sont des techniques, jamais des phrases.
+- 
+
+## 9. Journal des corrections
 `voice-calibrate` le remplit automatiquement : ce que tu changes systématiquement dans les drafts.
 | Date | J'ai remplacé | Par | Règle déduite |
 |---|---|---|---|

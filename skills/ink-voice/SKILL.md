@@ -34,5 +34,13 @@ So this skill triangulates from three sources and trusts the **most spontaneous*
 5. Pick 3-5 golden samples (spontaneous text, ≥ 150 words, human score ≥ 80) → `profile/corpus/golden/`.
 6. Show the user a summary and **3 sample sentences written in their voice**. Ask "is that you?" and iterate.
 
+## Inspiration accounts (optional, when the user names role models)
+1. Fetch 20 posts per account via Treg (`treg.linkedin.user.posts`, about $0.0015 per account). Keep the owner's own posts over 300 chars.
+2. Measure each account: median length, sentence length, emoji, hashtags, ink score, engagement (reactions + 3 × comments).
+3. Separate **models** from **anti-models**. Comms-team announcements and emoji/hashtag-heavy accounts are anti-models, even famous ones.
+4. Extract **techniques, never sentences**, as a table: who → technique → real example → how the user applies it.
+   Prefer techniques the user already does spontaneously.
+5. Write them to `corpus/inspirations/README.md` and add a short "Influences" section to voice.md.
+
 ## Output rule
 Every claim in voice.md cites what it was measured on ("mean 11.2 words, measured on 6 voice memos").
