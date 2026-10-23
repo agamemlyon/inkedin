@@ -17,6 +17,10 @@ Les agents vérifient ces règles avant chaque draft. Si l'une d'elles est viol�
 - Aucun like, commentaire, invitation ou DM automatisé. Les agents rédigent, l'humain envoie.
 - Aucun pod d'engagement, aucune extension qui pilote linkedin.com.
 
+## Personnes
+- Ne nommer ni viser aucune personne réelle sans accord explicite : pas de « X n'écrit pas ses posts », pas de comparaison avec des influenceurs.
+- Les comptes d'inspiration restent en coulisses.
+
 ## Cadence
 - 5 posts par semaine maximum, 1 par jour maximum
 - Pas deux posts de la même famille de hooks dans la même semaine

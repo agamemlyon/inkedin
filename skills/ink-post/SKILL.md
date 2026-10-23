@@ -71,6 +71,8 @@ slot:      <from plan>
 Save to `data/queue/YYYY-MM-DD_<slug>.md` with frontmatter `status: review`.
 
 ## Never
+- Name or target a real person (influencer, colleague, client, competitor) unless guardrails.md allows it. Inspiration accounts never appear in posts.
+- Exceed the DNA's cap on posts about the author's current job.
 - Publish or schedule without an explicit "ok"/"yes" (status `approved`).
 - Fabricate numbers, clients, quotes, or scenes. Unknown number → `{{ton chiffre}}` + flag.
 - Two ideas in one post. Split them and say so.
