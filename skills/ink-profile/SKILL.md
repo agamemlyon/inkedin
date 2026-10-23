@@ -7,6 +7,7 @@ metadata: {inkedin: {agent: strategist, reads: [content-dna.md, voice.md]}}
 
 # ink-profile
 
+0. Prefer `blitzapi.people.enrich` via Treg (about $0.0005/call): it returns the real headline, About, experience and skills, which `treg.linkedin.user.profile` often omits. Check: job title field duplicating the headline, emojis in titles, outdated skills.
 1. Fetch the public profile via Treg (`treg.linkedin.user.profile`, ≈ $0.002). Public scrapes hide
    parts of experience/education. For a full audit, ask the user to paste headline, About, current role,
    Featured, and describe banner + photo.

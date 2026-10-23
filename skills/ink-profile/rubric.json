@@ -1,19 +1,72 @@
 {
-  "version": "1.0",
-  "total": 100,
-  "note": "Score honestly. A generous score helps nobody. Structure inspired by Jake Schincariol's li-profile rubric (MIT), adapted with topic-consistency and bilingual items.",
-  "items": [
-    {"id": "headline", "points": 12, "full_marks": "Who you help + what changes for them + one proof. Uses the pillar vocabulary. Not just the job title. Uses most of the 220 characters."},
-    {"id": "about_open", "points": 10, "full_marks": "The ~2 lines before 'see more' name the reader's problem or your position. No 'passionate about', no 'proven track record', no third person."},
-    {"id": "about_body", "points": 10, "full_marks": "Second person, one or two real numbers, what you do, what to contact you for. Under 1,400 characters. Passes ink score."},
-    {"id": "topic_consistency", "points": 10, "full_marks": "Headline, About and current role all use the same 3-5 pillar terms your posts use (360Brew topic matching)."},
-    {"id": "current_role", "points": 10, "full_marks": "One line of scope then 2-3 outcome bullets with numbers that are allowed to be public. Duties don't count as outcomes."},
-    {"id": "featured", "points": 8, "full_marks": "Three items: best post, one proof asset (talk, article, case), one way to contact you."},
-    {"id": "experience_depth", "points": 6, "full_marks": "Last two roles detailed; roles older than 10 years compressed to one line."},
-    {"id": "photo", "points": 6, "full_marks": "Recent, face ~60% of frame, eyes visible, plain background."},
-    {"id": "banner", "points": 6, "full_marks": "One positioning line + one way to reach you. Not the default, not a stock skyline."},
-    {"id": "activity", "points": 8, "full_marks": "At least 1 original post per week in the last 8 weeks, in your pillars. Reposts and certification shares don't count."},
-    {"id": "language", "points": 6, "full_marks": "Bilingual profile set up (FR/EN secondary language) if you post in both."},
-    {"id": "skills_recos", "points": 8, "full_marks": "Top 3 skills match pillars; at least 2 recommendations from the last 3 years."}
-  ]
+ "version": "1.0",
+ "total": 100,
+ "note": "Score honestly. A generous score helps nobody. Structure inspired by Jake Schincariol's li-profile rubric (MIT), adapted with topic-consistency and bilingual items.",
+ "items": [
+  {
+   "id": "headline",
+   "points": 12,
+   "full_marks": "Target role title first, 2-3 search terms matching the pillars, one non-cliché differentiator. Not 'Driving X Excellence'. Uses the 220 characters."
+  },
+  {
+   "id": "about_open",
+   "points": 10,
+   "full_marks": "The ~2 lines before 'see more' name the reader's problem or your position. No 'passionate about', no 'proven track record', no third person."
+  },
+  {
+   "id": "about_body",
+   "points": 10,
+   "full_marks": "Second person, one or two real numbers, what you do, what to contact you for. Under 1,400 characters. Passes ink score."
+  },
+  {
+   "id": "topic_consistency",
+   "points": 10,
+   "full_marks": "Headline, About and current role all use the same 3-5 pillar terms your posts use (360Brew topic matching)."
+  },
+  {
+   "id": "current_role",
+   "points": 10,
+   "full_marks": "Title field contains ONLY the job title (not the headline); 2-3 lines of scope then 2-3 outcome bullets with publishable numbers."
+  },
+  {
+   "id": "featured",
+   "points": 8,
+   "full_marks": "Three items: best post, one proof asset (talk, article, case), one way to contact you."
+  },
+  {
+   "id": "experience_depth",
+   "points": 6,
+   "full_marks": "Last two roles detailed; roles older than 10 years compressed to one line."
+  },
+  {
+   "id": "photo",
+   "points": 6,
+   "full_marks": "Recent, face ~60% of frame, eyes visible, plain background."
+  },
+  {
+   "id": "banner",
+   "points": 6,
+   "full_marks": "One positioning line + one way to reach you. Not the default, not a stock skyline."
+  },
+  {
+   "id": "activity",
+   "points": 8,
+   "full_marks": "At least 1 original post per week in the last 8 weeks, in your pillars. Reposts and certification shares don't count."
+  },
+  {
+   "id": "language",
+   "points": 6,
+   "full_marks": "Bilingual profile set up (FR/EN secondary language) if you post in both."
+  },
+  {
+   "id": "skills_recos",
+   "points": 8,
+   "full_marks": "Top 5 pinned skills mirror the target title and pillars (max 50 skills, LinkedIn Talent Blog); no outdated tools left (Photoshop, Office...); at least 2 recommendations from the last 3 years."
+  }
+ ],
+ "sources_2026": [
+  "LinkedIn Talent Blog: skills on profile (official)",
+  "360Brew coverage 2026 (Scott Partnership, Expandi): profile/content alignment, ~60 days in 2-3 topics",
+  "CareerBldr 2026 guides (headline weight, About fold ~300 chars, 5 pinned skills)"
+ ]
 }
