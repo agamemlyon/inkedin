@@ -1,0 +1,15 @@
+Mardi, 17h40. Revue de composants avec 3 squads.
+
+Le dev de l'équipe Energy me sort : "On a recodé le date picker, le vôtre gérait pas le format US."
+
+Troisième fois depuis mars. Trois date pickers, trois bugs différents en prod.
+
+J'ai pas râlé. J'ai demandé à voir le ticket qu'ils avaient ouvert chez nous. Y en avait pas. Ils savaient même pas qu'on prenait des demandes.
+
+Ça, c'est mon problème, pas le leur.
+
+Du coup on a changé un truc tout bête : un canal Teams, une réponse sous 48h, et chaque demande refusée est expliquée par écrit. En 6 semaines on est passé de 4 à 31 demandes. Et zéro fork de composant sur la période.
+
+Bref, la doc parfaite servait à rien tant que personne savait où frapper.
+
+Vous avez un canal d'entrée officiel pour votre design system, ou les équipes vous trouvent par hasard ?

@@ -1,0 +1,9 @@
+InkedIn includes material adapted from:
+
+- linkedin-agent-skill by Jake Schincariol (https://github.com/Jakeschincariol/linkedin-agent-skill), MIT License.
+  Adapted: hook formulas #1-21 in library/hooks/hooks.json (translated to French, examples rewritten),
+  the structure of skills/ink-profile/rubric.json, the 60/40 mean/weakest verdict idea used in tools/ink.py.
+- humanizer by Siqi Chen (https://github.com/blader/humanizer), MIT License, itself based on
+  Wikipedia: Signs of AI writing (WikiProject AI Cleanup). Referenced by skills/ink-human.
+
+Copyright notices of the above projects are retained under their MIT terms.

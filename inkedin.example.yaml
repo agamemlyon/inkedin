@@ -1,0 +1,33 @@
+# inkedin.yaml : configuration du système
+# Copie ce fichier dans ton repo profil privé, puis règle INKEDIN_PROFILE=/chemin/vers/ce/repo
+
+profile:
+  dir: ./profile               # voice.md, content-dna.md, guardrails.md, proof.md
+  data: ./data                 # ideas/, queue/, published/, analytics/, feedback/
+  linkedin_handle: ""          # ex. samyjemai
+
+languages:
+  primary: fr
+  secondary: en
+  mix: { fr: 70, en: 30 }      # part des posts par langue ; EN = adaptation, jamais une traduction mot à mot
+
+cadence:
+  timezone: Europe/Paris
+  posts_per_week: 3
+  slots: ["tue 08:15", "wed 12:15", "thu 08:15"]
+  max_same_family_per_week: 1
+
+quality_gate:
+  min_human_score: 75          # ink score
+  min_check: 55
+  min_4u: 3                    # note du hook sur 4 (Urgent, Unique, Ultra-spécifique, Utile)
+  require_proof_source: true
+
+publishing:
+  mode: copy                   # copy = bloc prêt à coller (défaut) | api = API officielle LinkedIn après OK explicite
+  approval_channel: telegram   # là où partent les drafts à valider
+
+data_sources:
+  treg: true                   # lecture seule : tes posts, engagement, profils de pairs
+  peers: []                    # handles LinkedIn de référence pour la veille (swipe file)
+  feeds: []                    # RSS / newsletters pour la veille

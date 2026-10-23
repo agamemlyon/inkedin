@@ -1,0 +1,50 @@
+# InkedIn crons. Fuseau horaire : Europe/Paris.
+# Installation : demander à l'agent « installe les crons InkedIn » (Hermes : cronjob_manage),
+# ou utiliser n'importe quel planificateur qui lance un prompt d'agent.
+# Chaque job charge les skills nommés et écrit dans $INKEDIN_PROFILE/data/.
+
+jobs:
+  - name: inkedin-daily-scout
+    schedule: "30 7 * * *"
+    skills: [ink-scout]
+    prompt: "Run ink-scout. Send max 3 idea cards to the approval channel."
+
+  - name: inkedin-weekly-plan
+    schedule: "0 8 * * 1"
+    skills: [ink-plan]
+    prompt: "Run ink-plan for the current ISO week. Send the plan table + missing-material questions."
+
+  - name: inkedin-interview
+    schedule: "30 12 * * 2,4"
+    skills: [ink-interview]
+    prompt: "Pick the plan slot with the weakest material and send 3 interview questions (voice replies welcome)."
+
+  - name: inkedin-draft-ready
+    schedule: "0 18 * * 0-4"
+    skills: [ink-post, ink-human]
+    prompt: "For tomorrow's slot: write the draft from its idea card, pass the human gate, send it for approval (OK / Modifier / Reporter)."
+
+  - name: inkedin-publish
+    schedule: "15 8 * * 2,4"     # aligné sur cadence.slots ; mettre un job par créneau
+    skills: []
+    prompt: "If today's post is `approved`: mode copy -> send the final block; mode api -> run tools/publish.py. Never publish anything that isn't approved."
+
+  - name: inkedin-daily-comments
+    schedule: "30 18 * * *"
+    skills: [ink-reply]
+    prompt: "Run ink-reply for posts published in the last 72h. Send the digest. Drafts only."
+
+  - name: inkedin-weekly-analytics
+    schedule: "0 19 * * 0"
+    skills: [ink-audit]
+    prompt: "Run ink-audit. Write the weekly report and update weights.json. Send the 5-bullet summary."
+
+  - name: inkedin-monthly-voice
+    schedule: "0 9 1 * *"
+    skills: [ink-calibrate]
+    prompt: "Run ink-calibrate on last month's drafts vs published posts. Propose rules; apply only after approval."
+
+  - name: inkedin-monthly-profile
+    schedule: "30 9 1 * *"
+    skills: [ink-profile]
+    prompt: "Re-score the profile against rubric.json and content-dna.md. Report only if the score dropped or pillars drifted."

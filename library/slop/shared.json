@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "note": "Language-independent fingerprints. Invisible characters and typography are fixed automatically by `ink clean`; format tells are flagged by `ink score`.",
+  "invisible": [
+    {"char": "\u200b", "name": "zero-width space"},
+    {"char": "\u200c", "name": "zero-width non-joiner"},
+    {"char": "\u200d", "name": "zero-width joiner (outside emoji)"},
+    {"char": "\u2060", "name": "word joiner"},
+    {"char": "\ufeff", "name": "byte-order mark"},
+    {"char": "\u00ad", "name": "soft hyphen"},
+    {"char": "\u180e", "name": "mongolian vowel separator"},
+    {"char": "\u2061", "name": "function application"},
+    {"char": "\u2062", "name": "invisible times"},
+    {"char": "\u2063", "name": "invisible separator"},
+    {"char": "\u2064", "name": "invisible plus"}
+  ],
+  "typographic": [
+    {"find": " \u2014 ", "replace": ", ", "name": "spaced em dash"},
+    {"find": "\u2014", "replace": ", ", "name": "em dash"},
+    {"find": " \u2013 ", "replace": " - ", "name": "spaced en dash"},
+    {"find": "\u2013", "replace": "-", "name": "en dash"},
+    {"find": "\u2018", "replace": "'", "name": "left single quote"},
+    {"find": "\u2019", "replace": "'", "name": "right single quote"},
+    {"find": "\u201c", "replace": "\"", "name": "left double quote"},
+    {"find": "\u201d", "replace": "\"", "name": "right double quote"},
+    {"find": "\u2026", "replace": "...", "name": "ellipsis character"},
+    {"find": "\u2022 ", "replace": "- ", "name": "bullet character"}
+  ],
+  "format": {
+    "max_hashtags": 3,
+    "emoji_bullet_regex": "(?m)^\\s*(?:[0-9]\\ufe0f?\\u20e3|[\\u2705\\u2714\\u274c\\u27a1\\u2b50\\u26a1\\u2728]|[\\U0001F300-\\U0001FAFF])",
+    "max_emoji_per_100_words": 1.5,
+    "broetry_min_lines": 10,
+    "broetry_ratio": 0.8
+  }
+}

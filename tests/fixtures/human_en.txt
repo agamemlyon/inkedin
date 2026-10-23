@@ -1,0 +1,15 @@
+Tuesday, 5:40pm. Component review with three squads.
+
+A dev from the Energy team tells me: "We rebuilt the date picker, yours didn't handle US formats."
+
+That's the third one since March. Three date pickers, three different bugs in prod.
+
+I didn't push back. I asked to see the ticket they'd opened with us. There wasn't one. They didn't know we took requests at all.
+
+That one's on me.
+
+So we changed something embarrassingly small: one Teams channel, an answer within 48 hours, and every rejected request explained in writing. In 6 weeks we went from 4 requests to 31, and nobody forked a component in that window.
+
+The perfect docs were useless while nobody knew which door to knock on.
+
+Does your design system have an official front door, or do teams find you by accident?

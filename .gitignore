@@ -1,0 +1,9 @@
+# Personal data never lives in the public framework repo
+profile/
+data/
+inkedin.yaml
+.env
+*.token
+__pycache__/
+*.pyc
+.DS_Store
