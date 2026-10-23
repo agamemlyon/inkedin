@@ -16,6 +16,15 @@ J'aide **{audience}** à **{résultat}** grâce à **{angle unique}**.
 |---|---|---|---|---|
 | | | | | % |
 
+## Modes éditoriaux (à croiser avec les piliers)
+| Mode | Part | Ce que c'est |
+|---|---|---|
+| Maker / terrain | % | ce que je construis et teste pour de vrai |
+| Veille commentée | % | une nouveauté décortiquée, avec mon avis franc |
+| Coulisses & humain | % | erreurs, apprentissages, le métier vu de l'intérieur |
+| Pédago | % | expliquer simplement |
+- Cadrages interdits par défaut (ex. « Comex / ROI / transformation ») :
+
 ## Séries récurrentes (Hub)
 - ex. « Teardown du mois » : 1 DS public démonté, carrousel
 - ex. « La question du jeudi » : hook question-trap

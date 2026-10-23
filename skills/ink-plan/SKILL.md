@@ -19,7 +19,7 @@ metadata:
 
 ## Algorithm
 1. Slots = `cadence.posts_per_week` from `inkedin.yaml`.
-2. Allocate slots to pillars by target share, correcting for last 4 weeks' drift.
+2. Allocate slots to pillars by target share, correcting for last 4 weeks' drift. If content-dna.md defines **editorial modes** (maker, veille, coulisses, pédago…), also balance modes by their shares, and never use a framing the DNA marks as forbidden.
 3. For each slot choose an idea card whose material satisfies at least one hook's `needs`.
    If none exists for a pillar, schedule an `ink-interview` prompt instead of a weak post.
 4. Choose the hook family: no repeat in the week, weighted by `weights.json`, and
